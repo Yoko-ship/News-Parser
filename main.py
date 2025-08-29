@@ -1,4 +1,3 @@
-from collections import deque
 import feedparser
 import asyncio
 from replace_fn import replace_news

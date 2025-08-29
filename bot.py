@@ -1,10 +1,7 @@
-import logging
-from aiogram import Bot,Dispatcher,html
+from aiogram import Bot,Dispatcher
 from dotenv import load_dotenv
 from os import getenv
 import asyncio
-from aiogram.filters import CommandStart
-from aiogram.types import Message,InlineKeyboardButton,InlineKeyboardMarkup
 from aiogram.client.default import DefaultBotProperties
 from aiogram.enums import ParseMode
 from db import get_from_table
