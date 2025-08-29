@@ -8,9 +8,7 @@ def replace_news(news,data_news):
                 tag.decompose()
             
             text = soup.get_text(" ", strip=True).replace("Читать далее","")
-            # print(text)
-
-            for a in soup.find_all("a"):
-                url = a.get("href")        
-                data = {"title":info["title"],"description":text,"image":img,"url":url}
-                data_news.append(data)
+            a = soup.find("a")
+            url = a.get('href') if a else None   
+            data = {"title":info["title"],"description":text,"image":img,"url":url}
+            data_news.append(data)

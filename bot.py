@@ -15,10 +15,6 @@ dp = Dispatcher()
 
 channel_id = getenv("CHANNEL_ID")
 
-# @dp.message(CommandStart())
-# async def send_welcome(message:Message):
-#     await message.answer(f"Hello, {html.bold(message.from_user.full_name)}!")
-
 
 async def main():
     bot = Bot(token,default=DefaultBotProperties(parse_mode=ParseMode.HTML))

@@ -17,19 +17,15 @@ async def rss_parser():
     news = []
     data_news = []
 
-    while True:
-        get_news(it_news,news)
-        break
-    
-
+    get_news(it_news,news)
     replace_news(news,data_news)
-
-    
     for info in data_news:
+        
         try:
-
             insert_into_table(info["title"],info["description"],info["image"],info['url'])
+            print("✅ вставлено:", info['title'])
         except Exception:
+            print("❌ пропущено:", info['title'])
             continue
     
 
