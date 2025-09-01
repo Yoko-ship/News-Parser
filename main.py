@@ -2,6 +2,15 @@ import feedparser
 import asyncio
 from replace_fn import replace_news
 from db import insert_into_table
+from fastapi import FastAPI
+
+app = FastAPI()
+
+
+@app.get("/")
+def home():
+    return {"status":"Main is working"}
+
 
 
 
@@ -34,8 +43,10 @@ async def rss_parser():
         except Exception:
             print("❌ пропущено:", info['title'])
             continue
-    
 
-if __name__ == "__main__":
-    asyncio.run(rss_parser())
-    
+
+@app.post("/parse")
+async def parse_news():
+    await rss_parser()
+    return {"status":"Parsed"}
+

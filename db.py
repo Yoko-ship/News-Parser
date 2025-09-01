@@ -4,7 +4,6 @@ from os import getenv
 load_dotenv()
 DATABASE_URL = getenv("URL")
 conn = psycopg2.connect(DATABASE_URL)
-# cursor = conn.cursor()
 with conn.cursor() as cursor:
     
     cursor.execute("""
