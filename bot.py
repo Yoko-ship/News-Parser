@@ -29,11 +29,11 @@ def home():
 
 @app.get("/run-task")
 async def run_task():
-    try:
+    # try:
         await run_bot_task()
         return {"status":"Task executed"}
-    except Exception as e:
-        return {"status":e}
+    # except Exception as e:
+    #     return {"status":e}
 
 
 
