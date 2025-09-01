@@ -45,7 +45,7 @@ async def rss_parser():
             continue
 
 
-@app.post("/parse")
+@app.get("/parse")
 async def parse_news():
     await rss_parser()
     return {"status":"Parsed"}
