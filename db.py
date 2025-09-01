@@ -5,7 +5,7 @@ load_dotenv()
 DATABASE_URL = getenv("URL")
 conn = psycopg2.connect(DATABASE_URL)
 # cursor = conn.cursor()
-with conn.cursor as cursor:
+with conn.cursor() as cursor:
     
     cursor.execute("""
                 CREATE TABLE IF NOT EXISTS news(
@@ -25,14 +25,14 @@ def insert_into_table(title,description,image,url):
     query = """
     INSERT INTO news(title,description,image,url) VALUES(%s,%s,%s,%s)
     """
-    with conn.cursor as cursor:
+    with conn.cursor() as cursor:
         cursor.execute(query,(title,description,image,url))
         conn.commit()
 
 
 
 async def get_from_table(bot,parse,channel_id):
-    with conn.cursor as cursor:
+    with conn.cursor() as cursor:
         cursor.execute("SELECT id,title,description,image,url FROM news WHERE published = FALSE LIMIT 1")
         rows = cursor.fetchall()
         for row in rows:
