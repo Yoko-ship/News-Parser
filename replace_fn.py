@@ -7,7 +7,7 @@ def replace_news(news,data_news):
             for tag in soup.find_all("img"):
                 tag.decompose()
             
-            text = soup.get_text(" ", strip=True).replace("Читать далее","")
+            text = soup.get_text(" ", strip=True).replace("Читать дальше →","")
             a = soup.find("a")
             url = a.get('href') if a else None   
             data = {"title":info["title"],"description":text,"image":img,"url":url}

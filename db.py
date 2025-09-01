@@ -45,3 +45,4 @@ async def get_from_table(bot,parse,channel_id):
         conn.commit()
     
     cursor.close()
+
