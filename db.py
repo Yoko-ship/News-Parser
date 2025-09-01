@@ -44,5 +44,4 @@ async def get_from_table(bot,parse,channel_id):
         cursor.execute("UPDATE news SET published = TRUE WHERE id = %s",(news_id,))
         conn.commit()
     
-    cursor.close()
 
