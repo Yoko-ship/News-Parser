@@ -5,7 +5,6 @@ from aiogram.client.default import DefaultBotProperties
 from aiogram.enums import ParseMode
 from db import get_from_table
 from fastapi import FastAPI
-from aiogram.types import Update
 
 load_dotenv()
 token = getenv('token')
